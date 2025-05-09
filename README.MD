@@ -6,66 +6,22 @@ This document provides a brief overview of the `zipcode_user` API, which is curr
 
 The `zipcode_user` object contains the following fields:
 
-```json
-{
-    "user_id": {
-        "type": "String",
-        "required": true
-    },
-    "cep": {
-        "type": "String",
-        "required": true
-    },
-    "logradouro": {
-        "type": "String",
-        "required": true
-    },
-    "complemento": {
-        "type": "String",
-        "default": ""
-    },
-    "unidade": {
-        "type": "String",
-        "default": ""
-    },
-    "bairro": {
-        "type": "String",
-        "required": true
-    },
-    "localidade": {
-        "type": "String",
-        "required": true
-    },
-    "uf": {
-        "type": "String",
-        "required": true
-    },
-    "estado": {
-        "type": "String",
-        "required": true
-    },
-    "regiao": {
-        "type": "String",
-        "required": true
-    },
-    "ibge": {
-        "type": "String",
-        "required": true
-    },
-    "gia": {
-        "type": "String",
-        "default": ""
-    },
-    "ddd": {
-        "type": "String",
-        "required": true
-    },
-    "siafi": {
-        "type": "String",
-        "required": true
-    }
-}
-```
+| Campo        | Tipo    | Obrigatório | Valor Padrão |
+|--------------|---------|-------------|---------------|
+| `user_id`    | String  | Sim         | —             |
+| `cep`        | String  | Sim         | —             |
+| `logradouro` | String  | Sim         | —             |
+| `complemento`| String  | Não         | ""            |
+| `unidade`    | String  | Não         | ""            |
+| `bairro`     | String  | Sim         | —             |
+| `localidade` | String  | Sim         | —             |
+| `uf`         | String  | Sim         | —             |
+| `estado`     | String  | Sim         | —             |
+| `regiao`     | String  | Sim         | —             |
+| `ibge`       | String  | Sim         | —             |
+| `gia`        | String  | Não         | ""            |
+| `ddd`        | String  | Sim         | —             |
+| `siafi`      | String  | Sim         | —             |
 
 ## API Endpoints
 
