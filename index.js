@@ -7,9 +7,11 @@ const PORT = process.env.PORT;
 const connect = require('./db/connect.db');
 
 const ZipCodeRouter = require('./routes/zipcode.route');
+const validateToken = require('./middleware/token.middleware');
 
 app.use(cors());
 app.use(express.json());
+app.use(validateToken);
 
 connect();
 

@@ -1,6 +1,6 @@
 const sendSuccess = (message, result) => {
     return {
-        status: true,
+        success: true,
         message: message,
         data: result
     };
@@ -8,7 +8,7 @@ const sendSuccess = (message, result) => {
 
 const sendError = (message) => {
     return {
-        status: true,
+        success: false,
         message: message,
         data: null
     };

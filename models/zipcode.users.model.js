@@ -10,7 +10,7 @@ const ZipcodeUsersSchema = new mongoose.Schema({
     },
     logradouro: {
         type: String,
-        required: true,
+        default: '',
     },
     complemento: {
         type: String,
@@ -22,23 +22,23 @@ const ZipcodeUsersSchema = new mongoose.Schema({
     },
     bairro: {
         type: String,
-        required: true,
+        default: '',
     },
     localidade: {
         type: String,
-        required: true,
+        default: '',
     },
     uf: {
         type: String,
-        required: true,
+        default: '',
     },
     estado: {
         type: String,
-        required: true,
+        default: '',
     },
     regiao: {
         type: String,
-        required: true,
+        default: '',
     },
     ibge: {
         type: String,
