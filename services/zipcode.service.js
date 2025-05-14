@@ -10,7 +10,7 @@ module.exports = {
         if (!userId) {
             return res.status(400).json(sendError('User ID is required'));
         }
-        return await zipcodeUsersModel.find({ user_id: userId });
+        return await zipcodeUsersModel.find({ user_id: userId }).sort({ createdAt: -1 });
     },
     deleteAll: async (userId) => {
         if (!userId) {

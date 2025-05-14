@@ -56,6 +56,10 @@ const ZipcodeUsersSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    createdAt: {
+        type: Date,
+        default: Date.now,
+    },
 }, {
     collection: 'zipcode_users',
 });
