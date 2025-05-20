@@ -109,3 +109,26 @@ Esta API permite criar, consultar e excluir registros de CEP associados a usuár
   - `200`: Sucesso, registro deletado.
   - `404`: Registro não encontrado para deletar.
   - `500`: Erro interno do servidor.
+
+  ---
+
+  ## 📝 Full Changelog
+
+  Todas as alterações relevantes deste projeto são documentadas abaixo.
+
+  ### [Unreleased]
+  - Documentação inicial da API
+  - Implementação dos endpoints de CRUD para registros de CEP
+  - Configuração de variáveis de ambiente
+  - Scripts de inicialização e instalação
+
+  ### [1.0.0] - 2024-06-01
+  - Primeira versão estável
+  - Endpoints:
+    - `GET /zipcode/:userId` para listar registros de CEP por usuário
+    - `POST /zipcode` para criar novo registro de CEP
+    - `DELETE /zipcode/:userId` para remover todos os registros de um usuário
+    - `DELETE /zipcode/:id` para remover registro de CEP por ID
+  - Estrutura básica do projeto e documentação inicial
+
+  ---
