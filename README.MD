@@ -1,72 +1,111 @@
-# ZipCode User API (Beta-Closed)
 
-This document provides a brief overview of the `zipcode_user` API, which is currently in a **beta-closed** phase. The API is designed to manage user-specific ZIP code data for the ZipSearch application. It allows creating, retrieving, and deleting ZIP code records by user or by ID.
+# 📬 ZipSearch API
 
-## Data Model
-
-The `zipcode_user` object contains the following fields:
-
-| Campo        | Tipo    | Obrigatório | Valor Padrão |
-|--------------|---------|-------------|---------------|
-| `user_id`    | String  | Sim         | —             |
-| `cep`        | String  | Sim         | —             |
-| `logradouro` | String  | Sim         | —             |
-| `complemento`| String  | Não         | ""            |
-| `unidade`    | String  | Não         | ""            |
-| `bairro`     | String  | Sim         | —             |
-| `localidade` | String  | Sim         | —             |
-| `uf`         | String  | Sim         | —             |
-| `estado`     | String  | Sim         | —             |
-| `regiao`     | String  | Sim         | —             |
-| `ibge`       | String  | Sim         | —             |
-| `gia`        | String  | Não         | ""            |
-| `ddd`        | String  | Sim         | —             |
-| `siafi`      | String  | Sim         | —             |
-
-## API Endpoints
-
-### 1. Retrieve zipcode Data by User
-**Endpoint:** `GET /zipcode/:userId`  
-**Description:** Retrieves all ZIP code records associated with a specific user.  
-**Response Codes:**  
-- `200`: Success, returns the data.  
-- `404`: No records found.  
-- `500`: Internal server error.  
+Sistema de gerenciamento de registros de CEPs associados a usuários.
 
 ---
 
-### 2. Create a New zipcode Record
-**Endpoint:** `POST /zipcode`  
-**Description:** Creates a new ZIP code record for a user.  
-**Request Body:** Must include all required fields from the data model.  
-**Response Codes:**  
-- `201`: Success, record created.  
-- `400`: Bad request, invalid data.  
-- `500`: Internal server error.  
+## 📦 Instalação da Aplicação
+
+Siga os passos abaixo para configurar o ambiente local da aplicação:
+
+1. **Clone o repositório:**
+
+   ```bash
+   git clone https://github.com/lfo1985/zipsearch-api
+   cd zipsearch-api
+   ```
+
+2. **Instale as dependências:**
+
+   ```bash
+   npm install
+   ```
+
+3. **Configure as variáveis de ambiente:**
+
+   - Copie o arquivo `.env.example` para `.env`:
+
+     ```bash
+     cp .env.example .env
+     ```
+
+   - No arquivo `.env`, adicione o token gerado para o frontend:
+
+     ```ini
+     AUTH_TOKEN=seu_token_aqui
+     ```
+
+4. **Inicie a aplicação:**
+
+   ```bash
+   npm run dev
+   ```
 
 ---
 
-### 3. Delete All zipcode Records by User
-**Endpoint:** `DELETE /zipcode/:userId`  
-**Description:** Deletes all ZIP code records associated with a specific user.  
-**Response Codes:**  
-- `200`: Success, records deleted.  
-- `404`: No records found to delete.  
-- `500`: Internal server error.  
+## 🔌 API - Gerenciamento de Registros de CEP
+
+Esta API permite criar, consultar e excluir registros de CEP associados a usuários.
 
 ---
 
-### 4. Delete a zipcode Record by ID
-**Endpoint:** `DELETE /zipcode/:id`  
-**Description:** Deletes a specific ZIP code record by its unique ID.  
-**Response Codes:**  
-- `200`: Success, record deleted.  
-- `404`: No record found to delete.  
-- `500`: Internal server error.  
+### 1. Obter dados de CEP por usuário
+
+- **Endpoint:** `GET /zipcode/:userId`
+- **Descrição:** Retorna todos os registros de CEP associados a um usuário específico.
+- **Códigos de Resposta:**
+  - `200`: Sucesso, retorna os dados.
+  - `404`: Nenhum registro encontrado.
+  - `500`: Erro interno do servidor.
 
 ---
 
-## Notes
-- This API is in a **beta-closed** phase and is subject to changes.  
-- Ensure all required fields are provided when creating or updating records.  
-- For any issues or feedback, please contact the development team.  
+### 2. Criar um novo registro de CEP
+
+- **Endpoint:** `POST /zipcode`
+- **Descrição:** Cria um novo registro de CEP para um usuário.
+- **Corpo da Requisição (JSON):**
+
+  ```json
+  {
+    "user_id": "abc123",
+    "cep": "01001-000",
+    "logradouro": "Praça da Sé",
+    "complemento": "",
+    "unidade": "",
+    "bairro": "Sé",
+    "localidade": "São Paulo",
+    "uf": "SP",
+    "estado": "São Paulo",
+    "regiao": "Sudeste",
+    "ibge": "3550308"
+  }
+  ```
+
+- **Códigos de Resposta:**
+  - `201`: Sucesso, registro criado.
+  - `400`: Requisição inválida, dados incorretos.
+  - `500`: Erro interno do servidor.
+
+---
+
+### 3. Deletar todos os registros de CEP por usuário
+
+- **Endpoint:** `DELETE /zipcode/:userId`
+- **Descrição:** Remove todos os registros de CEP associados a um usuário específico.
+- **Códigos de Resposta:**
+  - `200`: Sucesso, registros deletados.
+  - `404`: Nenhum registro encontrado para deletar.
+  - `500`: Erro interno do servidor.
+
+---
+
+### 4. Deletar um registro de CEP por ID
+
+- **Endpoint:** `DELETE /zipcode/:id`
+- **Descrição:** Remove um registro de CEP específico pelo seu ID único.
+- **Códigos de Resposta:**
+  - `200`: Sucesso, registro deletado.
+  - `404`: Registro não encontrado para deletar.
+  - `500`: Erro interno do servidor.
